@@ -25,4 +25,4 @@ jobs:
           dotnet pack -c Debug -p:PackageVersion=0.0.${{github.run_number}} -o out
 
       - name: Push generated package to GitHub registry
-        run: dotnet nuget push ./Src/out/*.nupkg --source https://api.nuget.org/v3/index.json -k ${{secrets.NUGETAPIKEY}} --no-symbols true
+        run: dotnet nuget push ./Src/out/*.nupkg --source https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}} --no-symbols true
