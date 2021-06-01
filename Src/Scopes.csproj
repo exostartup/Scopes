@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>Scopes</PackageId>
+    <authors>exostartup</authors>
   </PropertyGroup>
 
 </Project>
