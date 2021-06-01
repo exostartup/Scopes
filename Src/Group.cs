@@ -4,25 +4,25 @@ using System.Text;
 
 namespace Scopes {
     public class Group : IndentContract , IEnumerable<object> {
+        public bool IsEmpty => _items.Count == 0;
 
-        List<object> items = new List<object>();
-        public bool IsEmpty => items.Count == 0;
-
-        
+        private List<object> _items = new List<object>();
 
 
         public void Add(IndentContract item) {
-            items.Add(item);
+            _items.Add(item);
         }
+        
         public void Add(string item) {
-            items.Add(item);
+            _items.Add(item);
         }
+        
         public void Add(Group item) {
-            items.AddRange(item);
+            _items.AddRange(item);
         }
 
         public override void Build(StringBuilder builder, int indent) {
-            foreach (var i in items) {
+            foreach (var i in _items) {
                 if (i is IndentContract indentContract) {
                     indentContract.Build(builder, indent);
                 } else {
@@ -32,15 +32,12 @@ namespace Scopes {
         }
 
         public IEnumerator GetEnumerator() {
-            return items.GetEnumerator();
+            return _items.GetEnumerator();
         }
 
         IEnumerator<object> IEnumerable<object>.GetEnumerator() {
-            return items.GetEnumerator();
+            return _items.GetEnumerator();
         }
 
     }
-
-
-
 }

@@ -10,7 +10,4 @@ namespace Scopes {
             return builder.ToString();
         }
     }
-
-
-
 }
