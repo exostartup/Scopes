@@ -6,23 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\Src\**\*.cs" />
-    
+    <Compile Include="..\Src\**\*.cs" />    
   </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Program.ecs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile  Include="Program.ecs">
-
-    </Compile >
-    
-  </ItemGroup>
-
-
-  
-  
   
 </Project>
