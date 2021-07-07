@@ -1,43 +1,53 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Scopes {
-    public class Group : IndentContract , IEnumerable<object> {
+    public class Group : Node, IEnumerable<IndecomposableNode> {
         public bool IsEmpty => _items.Count == 0;
 
-        private List<object> _items = new List<object>();
+        private List<IndecomposableNode> _items = new();
+
+        public void Add(object node) {
 
 
-        public void Add(IndentContract item) {
-            _items.Add(item);
-        }
-        
-        public void Add(string item) {
-            _items.Add(item);
-        }
-        
-        public void Add(Group item) {
-            _items.AddRange(item);
-        }
+            switch (node) {
+                case IndecomposableNode indecomposable:
+                    _items.Add(indecomposable);
+                    break;
 
-        public override void Build(StringBuilder builder, int indent) {
-            foreach (var i in _items) {
-                if (i is IndentContract indentContract) {
-                    indentContract.Build(builder, indent);
-                } else {
-                    builder.Append('\t', indent).AppendLine(i.ToString());
-                }
+                case IEnumerable<Node> enumerable:
+                    foreach (var i in enumerable) {
+                        Add(i);
+                    }
+                    break;
+
+                default:
+                    Add(new String(node.ToString()));
+                    break;
+
             }
         }
 
-        public IEnumerator GetEnumerator() {
-            return _items.GetEnumerator();
+        /*public void Add(IEnumerable<Node> items) {
+            foreach (var i in items) {
+                Add(i);
+            }
+        }*/
+
+        public override void Build(StringBuilder builder, int indent) {
+            foreach (var i in _items) {
+                i.Build(builder, indent);
+            }
         }
 
-        IEnumerator<object> IEnumerable<object>.GetEnumerator() {
-            return _items.GetEnumerator();
+        public IEnumerator<IndecomposableNode> GetEnumerator() {
+            return ((IEnumerable<IndecomposableNode>)_items).GetEnumerator();
         }
 
+        IEnumerator IEnumerable.GetEnumerator() {
+            return ((IEnumerable)_items).GetEnumerator();
+        }
     }
 }

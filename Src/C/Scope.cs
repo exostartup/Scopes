@@ -1,10 +1,11 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Scopes {
 
     namespace C {
-        public class Scope : IndentContract, IEnumerable {
+        public class Scope : IndecomposableNode, IEnumerable {
             public string Prefix { get; set; }
 
             public Scope(string prefix) {
@@ -25,20 +26,23 @@ namespace Scopes {
             }
 
             IEnumerator IEnumerable.GetEnumerator() {
-                return Content.GetEnumerator();
+                return null;
             }
 
-            public void Add(IndentContract item) {
+            public void Add(Node item) {
                 Content.Add(item);
             }
-            
-            public void Add(string item) {
+            public void Add(IEnumerable<Node> item) {
+                Content.Add(item);
+            }
+
+            /*public void Add(string item) {
                 Content.Add(item);
             }
             
             public void Add(Group item) {
                 Content.Add(item);
-            }
+            }*/
         }
     }
 }
