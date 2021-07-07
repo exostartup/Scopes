@@ -29,12 +29,10 @@ namespace Scopes {
                 return null;
             }
 
-            public void Add(Node item) {
-                Content.Add(item);
+            public void Add(object node) {
+                Content.Add(node);
             }
-            public void Add(IEnumerable<Node> item) {
-                Content.Add(item);
-            }
+
         }
     }
 }
