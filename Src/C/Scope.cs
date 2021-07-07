@@ -35,14 +35,6 @@ namespace Scopes {
             public void Add(IEnumerable<Node> item) {
                 Content.Add(item);
             }
-
-            /*public void Add(string item) {
-                Content.Add(item);
-            }
-            
-            public void Add(Group item) {
-                Content.Add(item);
-            }*/
         }
     }
 }
