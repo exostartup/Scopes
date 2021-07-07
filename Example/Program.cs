@@ -47,6 +47,7 @@ namespace Example {
                                 "Console.WriteLine(\"Hello World\");"
                             },
                             GetMembers(),
+                            new string[]{ "//one", "//two", "//three"},
                             new[]{typeof(int), typeof(float), typeof(double)}.Select(x=>new Scope(x.FullName + $" default{x.Name}()"){ 
                                 "return default;"
                             })

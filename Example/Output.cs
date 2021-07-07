@@ -13,6 +13,9 @@ namespace GeneratedNamespace{
 			}
 			void Do3(){
 			}
+			//one
+			//two
+			//three
 			System.Int32 defaultInt32(){
 				return default;
 			}

@@ -10,31 +10,25 @@ namespace Scopes {
         private List<IndecomposableNode> _items = new();
 
         public void Add(object node) {
-
-
-            switch (node) {
-                case IndecomposableNode indecomposable:
-                    _items.Add(indecomposable);
-                    break;
-
-                case IEnumerable<Node> enumerable:
-                    foreach (var i in enumerable) {
-                        Add(i);
-                    }
-                    break;
-
-                default:
-                    Add(new String(node.ToString()));
-                    break;
-
+            if (node is IndecomposableNode indecomposableNode) {
+                _items.Add(indecomposableNode);
+                return;
             }
+
+            if (node is string stringNode) {
+                _items.Add(new String(stringNode));
+                return;
+            }
+
+            if (node is IEnumerable enumerable) {
+                foreach (var i in enumerable) {
+                    Add(i);
+                }
+                return;
+            }
+
+            _items.Add(new String(node.ToString()));
         }
-
-        /*public void Add(IEnumerable<Node> items) {
-            foreach (var i in items) {
-                Add(i);
-            }
-        }*/
 
         public override void Build(StringBuilder builder, int indent) {
             foreach (var i in _items) {
