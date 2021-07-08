@@ -40,6 +40,7 @@ namespace Example {
 
             var output = new Group() {
                 header,
+                null,
                 new Scope("namespace GeneratedNamespace"){
                     new Scope("public class GeneratedClass"){
                         new Scope("public class GeneratedNestedClass"){

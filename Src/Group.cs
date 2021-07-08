@@ -10,6 +10,8 @@ namespace Scopes {
         private List<IndecomposableNode> _items = new();
 
         public void Add(object node) {
+            if (node == null) return;
+
             if (node is IndecomposableNode indecomposableNode) {
                 _items.Add(indecomposableNode);
                 return;
