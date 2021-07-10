@@ -1,5 +1,21 @@
 //This file is generated
 using System;
+namespace A {
+	namespace B {
+		namespace C {
+			namespace D {
+				namespace E {
+					namespace F {
+						namespace G {
+							namespace H {
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 namespace GeneratedNamespace {
 	public class GeneratedClass {
 		public class GeneratedNestedClass {

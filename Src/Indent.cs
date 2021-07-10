@@ -2,7 +2,6 @@
 using System.Text;
 
 namespace Scopes {
-
     public class Indent : IndecomposableNode, IEnumerable {
         public string Prefix { get; }
         public string Suffix { get; }
