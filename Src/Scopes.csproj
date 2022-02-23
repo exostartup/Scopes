@@ -3,12 +3,9 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>		
 		<PackageId>Scopes</PackageId>		
-		<authors>exostartup</authors>		
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<authors>exostartup</authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<None Include="..\LICENSE" Pack="true" PackagePath="LICENSE"/>
-	</ItemGroup>
 
 </Project>
