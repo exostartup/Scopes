@@ -7,7 +7,7 @@ namespace Scopes {
     public class Group : Node, IEnumerable<IndecomposableNode> {
         public bool IsEmpty => _items.Count == 0;
 
-        private List<IndecomposableNode> _items = new();
+        private List<IndecomposableNode> _items = new List<IndecomposableNode>();
 
         public void Add(object node) {
             if (node == null) return;

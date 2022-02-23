@@ -8,7 +8,12 @@ namespace Scopes {
 
         private Group _content = null;
         public Group Content {
-            get => _content ??= new Group();
+            get {
+                if (_content == null) {
+                    _content = new Group();
+                }
+                return _content;
+            }
             set => _content = value;
         }
 
