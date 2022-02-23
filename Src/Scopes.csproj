@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="LICENSE" Pack="true" PackagePath="LICENSE"/>
+		<None Include="..\LICENSE" Pack="true" PackagePath="LICENSE"/>
 	</ItemGroup>
 
 </Project>
